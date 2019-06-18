@@ -1,0 +1,8 @@
+--Removendo estado
+db.estados2.remove({sigla: 'AC'})
+
+--Removendo 1 registro que não contem o atributo população (1 no final define que apenas um registro sera apagado)
+db.estados2.remove({populacao: {$exists: false}},1)
+
+--Removendo registros que contem a população menor que 20000000
+db.estados2.remove({populacao: {$lt: 20000000}})

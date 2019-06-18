@@ -1,0 +1,14 @@
+---------Consultas com aggregate------------
+
+--$project - atributos da tabela que seram exibidos
+db.estados2.aggregate([
+    {$project: {nome: 1 , "cidades.nome" : 1 , _id: 0}}
+])
+
+
+--Somando a população das cidades e criando um atributo populacao linha 11, depois somando a população total de todos estados linha 12, depois exibindo apenas populacaoTotal linha 13
+db.estados2.aggregate([
+    {$project: {populacao: {$sum: "$cidades.populacao"}, sigla:1 , _id:0}},
+    {$group: {_id: null, populacaoTotal: {$sum: "$populacao"}}},
+    {$project: {_id: 0, populacaoTotal: 1}}
+])

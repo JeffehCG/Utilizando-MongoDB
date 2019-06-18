@@ -1,0 +1,18 @@
+cls - limpa terminal
+
+db.help - exibe metodos que podem ser usados
+
+show dbs - exibe os bancos disponiveis
+
+use NomeBanco - usa o banco ou cria um se não tiver
+
+db.createCollection('estados') - cria Collection(tecnicamente a tabela) --cuidado-- NoSQL é case sensitive
+
+show collections - exibe as Collections
+
+db.estados.drop() - Exclui a collection
+
+-------------------------------------------------------------------------------------------------------------------
+
+
+

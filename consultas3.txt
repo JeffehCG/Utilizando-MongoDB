@@ -1,0 +1,12 @@
+db.estados2.aggregate([
+    {$match: {"cidades.nome": "Sorocaba"}},
+    {$unwind: "$cidades"},
+    {$match: {"cidades.nome": "Sorocaba"}},
+    {$project: {_id: "$cidades._id"}}
+]).pretty()
+
+
+--$match - pegando apenas o dado que contenha determinado valor de atributo (basicamente é um WHERE)
+--$unwind - desenrola o atributo (em vez de retornar as 3 cidades no mesmo array, retorna elas separadas com um objeto)
+--O segundo $match é chamado para exibir apenas a cidade de Sorocaba junto com o estado
+--$project - esta exibindo apenas o id da cidade de "Sorocaba"

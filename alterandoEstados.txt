@@ -1,0 +1,16 @@
+--Atualizando ou adicionando dado populacao de SP
+db.estados2.update({sigla: "SP"},{$set: {populacao: 45340000}})
+
+--Adicionando atributo array cidades 
+db.estados2.update({sigla: "AL"},{$set: {cidades: [{nome:'Sergipe'}]}})
+
+
+--Adicionando nova cidade ao array de cidades de SP
+db.estados2.update(
+    {sigla: "SP"},
+    {$push: {cidades: {nome:"Santos", populacao: 43966}}}
+)
+
+--Exibindo apenas os estados com o atributo populacao
+db.estados2.find({populacao: {$exists: true}},{_id: 0, nome:1})
+

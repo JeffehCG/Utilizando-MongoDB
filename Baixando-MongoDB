@@ -1,0 +1,23 @@
+Acessar - https://www.mongodb.com/
+Clique em "Try Free"
+Na barra de opções contendo "Cloud , Server, Tools" selecione "Server"
+Escolha a versão que quer baixar, e o seu sistema operacional 
+Em seguida clique em Download
+
+Clique no executavel que baixar
+Em "Chose setup Type" selecione Complete
+Clique em next nos proximos
+
+Baixando o mongodb e preciso achar a pasta que o mesmo foi instalado
+Dentro da pasta bin existe dois arquivos (mongo.exe e mongod.exe)
+Esses dois arquivos devem ser referenciados na variavel path do sistema para ser reconhecido no cmd
+Copie o endereço da pasta (C:\Program Files\MongoDB\Server\4.0\bin)
+Pesquise por Meu computador (clique com o botão direito e em seguida propriedades)
+Em seguida clique em "Configurações avançadas do sistema"
+Depois em variaveis de ambiente
+Clique em Path e depois editar
+Clique em novo e cole o caminho da pasta copiado
+Crie as seguintes pastas (c:\data\db) -- é preciso criar essa pasta por que os arquivos do banco seram salvos nela
+
+Por fim é preciso acessar o cmd e digitar mongod para ativar o servidor
+e para usar o mongo é so digitar em outro cmd mongo

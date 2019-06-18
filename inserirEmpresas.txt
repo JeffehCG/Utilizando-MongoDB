@@ -1,0 +1,13 @@
+db.empresas.insert({
+    nome:"Bradesco",
+    estadoId: ObjectId("5ca7f2df1564aa63ffd9dfdc")
+})
+
+--estadoId recebe o id do estado de SP
+
+db.empresas.insert({   
+    nome:"Vale", 
+    estadoId: ObjectId( "5ca7f2df1564aa63ffd9dfdb") 
+})
+
+--estadoId recebe o id da cidade de Sorocaba

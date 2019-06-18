@@ -1,0 +1,21 @@
+--Inserindo registros em uma collection que não existe (Ira criar a collection automaticamente)
+db.estados2.insert({nome: 'Acre', sigla: 'AC' , regiao: 'Norte'})
+
+--Inserindo ou alterando em uma collection
+db.estados2.save({nome: 'Alagoas', sigla: 'AL' , regiao: 'Nordeste', populacao: 3258963025})
+
+--Exibindo dados da collection
+db.estados2.find().pretty()
+
+--Inserindo uma collection dentro de um atributo de outra collection
+db.estados2.insert({
+    nome: 'Rio de Janeiro', 
+    sigla: 'RJ' , 
+    regiao: 'Sudeste',
+    cidades: [{
+        _id: ObjectId(),
+        nome: 'Niteroi',
+        area: 133.9,
+        populacao: 487562
+    }]
+})

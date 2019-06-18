@@ -1,0 +1,44 @@
+--Consulta todos dados
+db.estados2.find()
+
+--Consulta todos dados, e exibe organizado
+db.estados2.find().pretty()
+
+--Consulta o primeiro dados
+db.estados2.findOne()
+
+--Consulta o primeiro registro (utilizando filtro)
+db.estados2.findOne({sigla: 'RJ'})
+
+--Consulta todos dados (utilizando filtro)
+db.estados2.find({sigla: 'RJ'})
+
+--Consulta com filtro '|| - ou'
+ db.estados2.find({$or: [{sigla: 'RJ'},{sigla:'AC'}]}).pretty()
+
+ --Consulta com filtro ' && - e'
+ db.estados2.find({$or: [{sigla: 'RJ'},{sigla:'AC'}]}).pretty()
+
+ --Consulta todos dados com atributo 'Populacao'
+ db.estados2.find({populacao: {$exists: true}})
+
+--Pulando o primeiro registro
+ db.estados2.find().skip(1)
+
+ --Limitando para aparecer apenas os 3 primeiros registros
+ db.estados2.find().limit(3)
+
+--Juntando os dois
+ db.estados2.find().skip(1).limit(3)
+
+ --Exibindo quantidade de registros
+ db.estados2.count()
+
+--Filtrando por RJ, e exibindo apenas nome e sigla
+db.estados2.find({sigla: 'RJ'},{nome: 1, sigla: 1})
+
+--Exibindo que nem acima, porem sem o _id
+db.estados2.find({sigla: 'RJ'},{nome: 1, sigla: 1, _id:0})
+
+--Exibindo apenas as cidade dentro de SP (collection dentro de collection)
+db.estados2.find({sigla: 'SP'},{"cidades.nome":1 , _id:0})
